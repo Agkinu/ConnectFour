@@ -17,6 +17,7 @@ $(document).ready(function () {
             }
             board.append(row);
         }
+        $("p").text("player " +player+ "'s turn");
     }
 
     function placePieces(){
@@ -52,6 +53,7 @@ $(document).ready(function () {
 
     function whoPlays(){
         player = (player === "red") ? "yellow" : "red";
+        $("p").text("player " +player+ "'s turn");
     }
 
     function checkIfVictory(piece) {
