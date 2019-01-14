@@ -33,6 +33,7 @@ $(document).ready(function () {
                 }
             }
             if(checkIfVictory(whichRowToPutPiece)){
+                $("p").text("");
                 $("h1").text("Winner Is "+ player).css("color",player);
                 board.off("click",".column");
             }
