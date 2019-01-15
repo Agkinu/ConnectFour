@@ -36,8 +36,10 @@ $(document).ready(function () {
                 $("p").text("");
                 $("h1").text("Winner Is "+ player).css("color",player);
                 board.off("click",".column");
+            }else{
+                checkDraw();
+                whoPlays();
             }
-            whoPlays();
     });
 
 
@@ -238,5 +240,19 @@ $(document).ready(function () {
             array.push(mPiece);
         });
         return array;
+    }
+
+    function checkDraw() {
+        const allColumn = $(".column");
+        let draw = true;
+        for (let i = 0; i <allColumn.length; i++) {
+            const currentPieceCheck = $(allColumn[i]);
+            if(!(currentPieceCheck.hasClass("column-yellow")||currentPieceCheck.hasClass("column-red"))){
+                draw = false;
+            }
+            if(draw===true){
+                $("p").text("draw");
+            }
+        }
     }
 }
