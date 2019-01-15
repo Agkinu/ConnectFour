@@ -37,8 +37,8 @@ $(document).ready(function () {
                 $("h1").text("Winner Is "+ player).css("color",player);
                 board.off("click",".column");
             }else{
-                checkDraw();
                 whoPlays();
+                checkDraw();
             }
     });
 
@@ -247,12 +247,13 @@ $(document).ready(function () {
         let draw = true;
         for (let i = 0; i <allColumn.length; i++) {
             const currentPieceCheck = $(allColumn[i]);
-            if(!(currentPieceCheck.hasClass("column-yellow")||currentPieceCheck.hasClass("column-red"))){
+            if(!currentPieceCheck.hasClass("column-yellow")&&!currentPieceCheck.hasClass("column-red")){
                 draw = false;
+                break;
             }
-            if(draw===true){
-                $("p").text("draw");
-            }
+        }
+        if(draw===true){
+            $("p").text("draw");
         }
     }
 }
